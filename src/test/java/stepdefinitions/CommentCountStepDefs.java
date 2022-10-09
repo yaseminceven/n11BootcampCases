@@ -1,7 +1,6 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.N11MainPage;
@@ -19,13 +18,6 @@ public class CommentCountStepDefs extends TestRunner {
     AllStoresPage storepage;
     SecondStoreFromExcelPage storepagefromexcel;
     SecondStoreMainPage secondstorepage;
-
-    @Given("User opens the main page")
-    public void userOpensTheNMainPage() {
-        getThreadDriver().navigate().to(url);
-        mainpage = new N11MainPage(getThreadDriver());
-        mainpage.closeInfo();                  //close the info pop-up for the location
-    }
 
     @When("User looks for all stores and obtains sorted list")
     public void userLooksForAllStoresAndObtainsSortedList() throws IOException {

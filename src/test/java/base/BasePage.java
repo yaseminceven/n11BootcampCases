@@ -1,11 +1,9 @@
 package base;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
@@ -19,6 +17,21 @@ public class BasePage {
     public BasePage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+    }
+
+    //method to return current url
+    public String getUrl(){
+        return driver.getCurrentUrl();
+    }
+
+    //method to go to the web page
+    public void goToUrl(String url){
+        driver.navigate().to(url);
+    }
+
+    //method to go back to previous page
+    public void goBack(){
+        driver.navigate().back();
     }
 
     //wait method
@@ -57,18 +70,28 @@ public class BasePage {
         driver.get(url);
     }
 
-    //click method
+    //methods to click
     public void clickElement(By by){
         wait.until(ExpectedConditions.elementToBeClickable(by));
         findElement(by).click();
     }
+    public void clickElement(WebElement element){
+        element.click();
+    }
+    public void clickElementWithJs(By by){
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].click();", findElement(by));
+    }
 
-    //send keys methods
+    //methods to send keys
     public void sendKeysElement(By by,String key){
         findElement(by).sendKeys(key);
     }
     public void sendKeysElement(By by, Keys key){
         findElement(by).sendKeys(key);
+    }
+    public void sendKeysElement(WebElement element,String key){
+        element.sendKeys(key);
     }
 
     //hover over element method
@@ -82,6 +105,12 @@ public class BasePage {
     //clear the field method
     public void clearElement(By by){
         findElement(by).clear();
+    }
+
+    //method to select from dropdown
+    public void selectDropdown(By by,String text){
+        Select dropdown = new Select(findElement(by));
+        dropdown.selectByVisibleText(text);
     }
 
 }

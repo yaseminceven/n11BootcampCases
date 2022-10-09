@@ -1,5 +1,6 @@
 package base;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -24,7 +25,6 @@ public class CapabilityFactory {
 
     private EdgeOptions getEdgeOptions() {
         EdgeOptions options = new EdgeOptions();
-        options.addArguments("headless");
         options.addArguments("private");
         options.addArguments("start-maximized");
         return options;
@@ -33,7 +33,7 @@ public class CapabilityFactory {
 
     private ChromeOptions getChromeOptions() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
         options.addArguments("--start-maximized");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--ignore-certificate-errors");
