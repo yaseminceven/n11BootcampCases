@@ -11,7 +11,6 @@ public class CommonStepDefs extends TestRunner{
     public void userOpensTheNMainPage() {
         getThreadDriver().navigate().to(url);
         mainpage = new N11MainPage(getThreadDriver());
-     //   mainpage.closeInfo();                            //close the location info pop-up
     }
 
 }

@@ -21,6 +21,7 @@ public class CommentCountStepDefs extends TestRunner {
 
     @When("User looks for all stores and obtains sorted list")
     public void userLooksForAllStoresAndObtainsSortedList() throws IOException {
+        mainpage = new N11MainPage(getThreadDriver());
         mainpage.goToStores();                            //go to the 'https://www.n11.com/magazalar'
         storepage = new AllStoresPage(getThreadDriver());
         storepage.goToAllStoresListInPage();              //go the section of the list

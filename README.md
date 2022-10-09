@@ -20,7 +20,8 @@ Writing test automation code to obtain list of stores and writing the results in
 To run this project, download or clone the project. In the project directory run the following commands to run the TestNG test suite.
 ```
 docker-compose up
-mvn clean test
+mvn clean test -Dcucumber.filter.tags="@addIphone"
+mvn clean test -Dcucumber.filter.tags="@searchPhone"
 ```
 Selenium grid components are build with the docker-compose.yml file.</br>
 Selenium grid nodes run on the docker. And the hub address is set to ***localhost:4444***. </br>

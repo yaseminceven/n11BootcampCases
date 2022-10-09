@@ -13,7 +13,6 @@ import java.net.URL;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepdefinitions",
-        tags = "@searchPhone",
         plugin = {"pretty", "json:target/cucumber-reports.json","html:target/cucumber-html-report","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 )
 public class TestRunner extends AbstractTestNGCucumberTests {

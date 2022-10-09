@@ -8,15 +8,6 @@
     <artifactId>n11BootcampCases</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <profiles>
-        <profile>
-            <id>addIphone</id>
-            <properties>
-                <cucumber.filter.tags>@addIphone</cucumber.filter.tags>
-            </properties>
-        </profile>
-    </profiles>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -130,7 +121,6 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
